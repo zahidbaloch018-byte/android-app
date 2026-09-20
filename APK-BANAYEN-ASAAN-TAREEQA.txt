@@ -1,0 +1,122 @@
+================================================================
+  APK BANAYEN — BINA ANDROID STUDIO KE
+================================================================
+
+Android Studio na chale to ye tareeqa istemaal karein. Aap ke PC
+par kuch bhi install nahi karna. Sirf browser chahiye.
+Bilkul free hai. Waqt: ~10 minute (pehli dafa).
+
+
+----------------------------------------------------------------
+  QADAM 1 — GitHub account banayein
+----------------------------------------------------------------
+  https://github.com/signup
+  Email aur password se bana lein. Free hai.
+
+
+----------------------------------------------------------------
+  QADAM 2 — Naya repository banayein
+----------------------------------------------------------------
+  Upar dayein taraf  +  ka nishan -> "New repository"
+
+    Repository name : alnoor-billing-app
+    Private         : tick kar dein (taake koi aur na dekhe)
+
+  "Create repository" dabayein.
+
+
+----------------------------------------------------------------
+  QADAM 3 — Files upload karein   << YAHAN DHYAN DEIN
+----------------------------------------------------------------
+  Nayi khali repository mein link milega:
+     "uploading an existing file"        <- ispar click karein
+
+  Ab is folder ke ANDAR ki saari cheezein drag karein:
+
+        app/            <- ye folder
+        .github/        <- ye folder (bohot zaroori)
+        build.gradle
+        settings.gradle
+        gradle.properties
+        PADHEIN.txt
+
+  ZAROORI: "alnoor-billing-android" folder KHUD upload nahi karna.
+  Us ke andar jo cheezein hain wo upload karni hain.
+
+  Agar drag se .github folder na jaye (kuch browsers chhupa dete
+  hain) to fikr na karein — Qadam 3-B neeche dekhein.
+
+  Neeche "Commit changes" ka sabz button dabayein.
+
+
+----------------------------------------------------------------
+  QADAM 3-B — Agar .github folder upload na ho
+----------------------------------------------------------------
+  Repository mein upar "Add file" -> "Create new file"
+  Naam wale khaane mein bilkul ye likhein (slash samet):
+
+        .github/workflows/build-apk.yml
+
+  Phir is project ki build-apk.yml file ko Notepad mein kholein,
+  poora text copy kar ke yahan paste kar dein.
+  "Commit changes" dabayein.
+
+
+----------------------------------------------------------------
+  QADAM 4 — APK ka intezar karein
+----------------------------------------------------------------
+  Upar "Actions" tab par jayein.
+  "Build APK" naam ka kaam chalta hua nazar aayega (peela gola).
+
+  ~5 minute baad sabz tick lag jayega.
+
+
+----------------------------------------------------------------
+  QADAM 5 — APK download karein
+----------------------------------------------------------------
+  Us sabz tick wale kaam par click karein.
+  Page ke bilkul neeche "Artifacts" ka hissa hoga:
+
+        AlnoorBilling-APK        <- ispar click karein
+
+  Ek zip download hogi. Usay kholein, andar app-debug.apk hai.
+  Yahi aap ka Android app hai.
+
+
+----------------------------------------------------------------
+  QADAM 6 — Phone par install
+----------------------------------------------------------------
+  APK file WhatsApp / USB / email se phone par bhejein.
+  Phone par file kholein.
+  "Unknown sources" ya "Is source se install allow karein" -> Allow
+  -> Install.
+
+  App khulne par server ka address maangega, jaise:
+        http://192.168.1.5:3000
+
+  (IP ke liye server wale PC par: Windows mein  ipconfig )
+
+
+----------------------------------------------------------------
+  AAGE JO BHI TABDEELI KARNI HO
+----------------------------------------------------------------
+  GitHub par file edit kar ke commit karein — APK khud dobara
+  ban jayega. Har dafa Actions tab se naya APK download kar lein.
+
+  Lekin yaad rahe: index.html ki tabdeeliyan server par hoti hain,
+  un ke liye APK dobara banane ki zaroorat NAHI. App khud naya
+  page utha leta hai.
+
+
+----------------------------------------------------------------
+  AUR BHI ASAAN RASTA (agar GitHub bhi mushkil lage)
+----------------------------------------------------------------
+  Agar aap server ko ek HTTPS address de dein (Cloudflare Tunnel
+  se free mil jata hai), to:
+
+        https://www.pwabuilder.com
+
+  par wo address daal kar seedha APK download kar sakte hain.
+  Aap ka project already PWA hai, is liye ye chal jayega.
+  Bas ek hi kami: is APK mein server address badalne wali screen
+  nahi hogi — address pakka ho jayega.

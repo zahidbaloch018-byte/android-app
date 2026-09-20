@@ -1,0 +1,94 @@
+================================================================
+  ALNOOR BILLING — ANDROID APP (APK)
+================================================================
+
+Ye Android project aap ke ISP billing server ka app hai.
+App andar aap ke server ka page kholta hai — matlab jab bhi aap
+server ka index.html update karenge, app mein khud ba khud naya
+version aa jayega. APK dobara banane ki zaroorat nahi.
+
+
+----------------------------------------------------------------
+  APK KAISE BANAYEN (ek baar ka kaam, ~30 minute)
+----------------------------------------------------------------
+
+1) Android Studio install karein
+   https://developer.android.com/studio
+   (Free hai. Install ke waqt "Android SDK" wale sab boxes tick
+    rehne dein.)
+
+2) Is folder ko kholein
+   Android Studio -> File -> Open -> ye "apk" folder select karein
+   Pehli dafa ye Gradle aur SDK download karega — 10-15 minute
+   lag sakte hain, internet chahiye. Sabar se intezar karein
+   jab tak neeche "Gradle sync finished" na likha aa jaye.
+
+3) APK banayein
+   Menu -> Build -> Build Bundle(s) / APK(s) -> Build APK(s)
+
+   Ban jane par neeche notification mein "locate" par click karein.
+   File yahan milegi:
+   apk/app/build/outputs/apk/debug/app-debug.apk
+
+4) Phone par install karein
+   Ye APK file WhatsApp/USB/email se phone par bhejein.
+   Phone par kholein -> "Unknown sources se install" allow karein
+   -> Install.
+
+5) App pehli dafa khulne par server ka address maangega, jaise:
+   http://192.168.1.5:3000
+
+   IP maloom karne ke liye server wale PC par:
+     Windows  : ipconfig       (IPv4 Address dekhein)
+     Mac/Linux: ifconfig       ya  ip addr
+
+   Address ek dafa save hone ke baad dobara nahi poochega.
+   Badalna ho to: server band karke app kholein -> error screen par
+   "Server ka address badlein".
+
+
+----------------------------------------------------------------
+  APP MEIN KYA KYA HAI
+----------------------------------------------------------------
+  - Login cookies mehfooz rehti hain (baar baar login nahi)
+  - Neeche se upar kheenchne par refresh
+  - Back button page ki history par kaam karta hai
+  - PDF / backup file download Downloads folder mein
+  - Server band ho to saaf error message, andaza lagane ki zaroorat nahi
+  - Data kabhi cache nahi hota — hamesha live hisaab
+
+
+----------------------------------------------------------------
+  ZAROORI BAAT — SERVER
+----------------------------------------------------------------
+Ye app khud data nahi rakhta. App sirf server se baat karta hai.
+Is liye app tabhi chalega jab:
+   - server wale PC par "npm start" chal raha ho, AUR
+   - phone usi WiFi par ho
+
+Agar staff ko bahar se (mobile data par) access chahiye to server
+ko internet par lana parega:
+   - Jaldi tareeqa: Cloudflare Tunnel (free, ek HTTPS URL de deta hai)
+   - Pakka tareeqa: VPS (Hetzner/Contabo ~$5/mah) + domain + SSL
+
+HTTPS wale address par ja kar app ki kuch cheezein aur behtar ho
+jayengi — us waqt app/build.gradle ke sath sath
+res/xml/network_security_config.xml mein cleartext ko false kar dein.
+
+
+----------------------------------------------------------------
+  NAAM / ICON BADALNA
+----------------------------------------------------------------
+  App ka naam : app/src/main/res/values/strings.xml
+  Icon        : app/src/main/res/mipmap-* folders mein PNG badlein
+  Rang        : res/values/themes.xml aur layout files
+
+
+----------------------------------------------------------------
+  PLAY STORE PAR DAALNA HO TO
+----------------------------------------------------------------
+Debug APK sirf apne staff ko dene ke liye theek hai. Play Store ke
+liye "signed release" chahiye:
+  Build -> Generate Signed Bundle / APK -> Android App Bundle
+Keystore file bana kar mehfooz rakhein — kho gayi to app kabhi
+update nahi kar payenge.
